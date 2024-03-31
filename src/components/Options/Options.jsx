@@ -1,4 +1,4 @@
-// import PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import css from "./Options.module.css";
 
 function Options({ onClickFeedback, resetFeedback, resetButton }) {
@@ -38,3 +38,8 @@ function Options({ onClickFeedback, resetFeedback, resetButton }) {
 }
 
 export default Options;
+Options.protoType = {
+  onClickFeedback: PropTypes.func,
+  resetFeedback: PropTypes.bool,
+  resetButton: PropTypes.func,
+};
