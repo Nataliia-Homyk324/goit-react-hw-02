@@ -1,6 +1,7 @@
 import Description from '../Description/Description';
 import Notification from '../Notification/Notification';
 import Options from '../Options/Options';
+import Feedback from '../Feedback/Feedback';
 import css from './App.module.css'
 import { useState, useEffect } from "react";
 
@@ -42,9 +43,20 @@ function App() {
 
     return (
         <section className={css.container}>
-            <Description />
-            <Options/>
-            <Notification />
+        <Description />
+        <Options
+        onClickFeedback={(feedbackType) => updateFeedback(feedbackType)}
+        resetFeedback={totalFeedback >= 1}
+        resetButton={resetFeedbackButton}
+        />
+       {totalFeedback >= 1 && (
+        <Feedback
+          feedbackObj={values}
+          feedbackTotal={totalFeedback}
+          feedbackPositive={positiveFeedback}
+        />
+      )}
+             {totalFeedback < 1 && <Notification />}
 
         </section>
     )
