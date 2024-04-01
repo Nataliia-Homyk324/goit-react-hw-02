@@ -1,5 +1,6 @@
 import css from "./Feedback.module.css"
 import PropTypes from "prop-types";
+import { VscStarEmpty,VscStarHalf,VscStarFull } from "react-icons/vsc";
 
 
 function Feedback({ feedbackObj,feedbackTotal, feedbackPositive }) {
@@ -7,9 +8,9 @@ function Feedback({ feedbackObj,feedbackTotal, feedbackPositive }) {
     return (
         <>
             <div className={css.feedbackWrapper}>
-                <p className={css.feedbackParagraf}>Good:{good}</p>
-                <p className={css.feedbackParagraf}>Neutral:{neutral}</p>
-                <p className={css.feedbackParagraf}>Bad:{bad}</p>
+                <p className={css.feedbackParagraf}><VscStarEmpty />Good:{good} </p>
+                <p className={css.feedbackParagraf}><VscStarHalf />Neutral:{neutral} </p>
+                <p className={css.feedbackParagraf}><VscStarFull />Bad:{bad} </p>
             </div>
             <div className={css.feedbackWrapper}>
                 <p className={css.feedbackParagraf}>Total:{feedbackTotal}</p>
