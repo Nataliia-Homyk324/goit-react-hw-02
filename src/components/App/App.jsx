@@ -7,7 +7,8 @@ import { useState, useEffect } from "react";
 
 
 function App() {
-    const typeRewiews = {
+  const typeRewiews =
+  {
     good: 0,
     neutral: 0,
     bad: 0,
@@ -49,14 +50,12 @@ function App() {
         resetFeedback={totalFeedback >= 1}
         resetButton={resetFeedbackButton}
         />
-       {totalFeedback >= 1 && (
+       {totalFeedback > 0 ? 
         <Feedback
           feedbackObj={values}
           feedbackTotal={totalFeedback}
           feedbackPositive={positiveFeedback}
-        />
-      )}
-             {totalFeedback < 1 && <Notification />}
+        />: <Notification />}
 
         </section>
     )
