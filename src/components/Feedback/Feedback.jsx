@@ -4,13 +4,14 @@ import { VscStarEmpty,VscStarHalf,VscStarFull } from "react-icons/vsc";
 
 
 function Feedback({ feedbackObj,feedbackTotal, feedbackPositive }) {
-    const { good, neutral, bad } = feedbackObj;
+    
     return (
         <>
             <div className={css.feedbackWrapper}>
-                <p className={css.feedbackParagraf}><VscStarEmpty />Good:{good} </p>
-                <p className={css.feedbackParagraf}><VscStarHalf />Neutral:{neutral} </p>
-                <p className={css.feedbackParagraf}><VscStarFull />Bad:{bad} </p>
+                
+                <p className={css.feedbackParagraf}><VscStarEmpty />Good:{feedbackObj.good} </p>
+                <p className={css.feedbackParagraf}><VscStarHalf />Neutral:{feedbackObj.neutral} </p>
+                <p className={css.feedbackParagraf}><VscStarFull />Bad:{feedbackObj.bad} </p>
             </div>
             <div className={css.feedbackWrapper}>
                 <p className={css.feedbackParagraf}>Total:{feedbackTotal}</p>

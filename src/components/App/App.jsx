@@ -7,22 +7,21 @@ import { useState, useEffect } from "react";
 
 
 function App() {
-  const typeRewiews =
-  {
-    good: 0,
-    neutral: 0,
-    bad: 0,
+  
+const [values, setValues] = useState(() => {
+  const savedValues = window.localStorage.getItem("saved-values");
+  if (savedValues !== null) {
+    return JSON.parse(savedValues);
+  } else {
+    return {
+      good: 0,
+      neutral: 0,
+      bad: 0,
     };
-
-    // values - obj typeRewiews
-  const [values, setValues] = useState(() => {
-    const savedValues = window.localStorage.getItem("saved-values");
-    if (savedValues !== null) {
-      return JSON.parse(savedValues);
-    }
-    return typeRewiews;
-  });
-    
+  }
+});
+  
+  
     useEffect(() => {
     window.localStorage.setItem("saved-values", JSON.stringify(values));
     }, [values]);
@@ -39,7 +38,12 @@ function App() {
     });
     };
     
-    const resetFeedbackButton = () => setValues(typeRewiews);
+  
+  const resetFeedbackButton = () => setValues({
+    good: 0,
+    neutral: 0,
+    bad: 0,
+});
     
 
     return (
