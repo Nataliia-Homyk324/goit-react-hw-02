@@ -31,10 +31,10 @@ const [values, setValues] = useState(() => {
     ((values.good + values.neutral) / totalFeedback) * 100
     );
     
-    const updateFeedback = (feedbackType) => {
+    const updateFeedback = (option) => {
     setValues({
       ...values,
-      [feedbackType]: values[feedbackType] + 1,
+      [option]: values[option] + 1,
     });
     };
     
@@ -50,7 +50,7 @@ const [values, setValues] = useState(() => {
         <section className={css.container}>
         <Description />
         <Options
-        onClickFeedback={(feedbackType) => updateFeedback(feedbackType)}
+        onClickFeedback={(option) => updateFeedback(option)}
         resetFeedback={totalFeedback >= 1}
         resetButton={resetFeedbackButton}
         />
